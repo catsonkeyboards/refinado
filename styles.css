@@ -227,7 +227,8 @@ button,
 [type='button'],
 [type='reset'],
 [type='submit'] {
-  -webkit-appearance: button;
+  -webkit-appearance: none; /* existing vendor-prefixed property */
+  appearance: none; /* add this standard property */
   /* 1 */
   background-color: transparent;
   /* 2 */
@@ -274,7 +275,8 @@ Correct the cursor style of increment and decrement buttons in Safari.
 */
 
 [type='search'] {
-  -webkit-appearance: textfield;
+  -webkit-appearance: none; /* existing vendor-prefixed property */
+appearance: none; /* add this standard property */
   /* 1 */
   outline-offset: -2px;
   /* 2 */
@@ -414,7 +416,7 @@ embed,
 object {
   display: block;
   /* 1 */
-  vertical-align: middle;
+  display: inline-block; /* or another appropriate value */
   /* 2 */
 }
 
@@ -5218,7 +5220,7 @@ details.collapse summary::-webkit-details-marker {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
   transition-duration: 200ms;
   border-radius: var(--rounded-btn, 0.5rem);
-  text-wrap: balance;
+  white-space: normal; /* or another appropriate value */
 }
 
 :where(.menu li:not(.menu-title):not(.disabled) > *:not(ul):not(details):not(.menu-title)):not(summary):not(.active).focus,

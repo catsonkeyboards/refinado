@@ -1,0 +1,250 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.home-page header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--lighter-brown);
+  padding: 5px 20px;
+  height: 50px;
+  border-radius: 50px;
+  /* Adds rounded corners */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  /* Adds shadow */
+  margin: 25px;
+  /* Adds some margin around the header */
+  z-index: 1;
+  /* Ensures the header is above other elements */
+}
+
+.header-title {
+  font-size: 18px;
+  /* Adjust the font size */
+  color: var(--dark-grey);
+  /* Set the color */
+  margin-left: 10px;
+  /* Add some left margin if needed */
+  font-weight: 900;
+  /* Set the font weight to a lighter value */
+  background-image: linear-gradient(to right, var(--dark-grey), #4d0e2c, var(--dark-grey));
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline; /* Required for background-clip to work */
+}
+
+.home-page main {
+  flex: 1 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 0;  /* Remove the fixed bottom margin */
+  margin-top: -100px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-container img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.login-button {
+  background-color: var(--dark-grey);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: transform 0.2s ease-in-out;
+  /* Add transition for smooth effect */
+}
+
+.login-button:hover {
+  transform: scale(1.05);
+  /* Enlarge the button slightly */
+}
+
+.tagline {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Center the items horizontally */
+  justify-content: center;
+  /* Center the items vertically */
+}
+
+.tagline h1 {
+  font-size: 66px;
+  /* Increase the font size */
+  font-weight: bold;
+  /* Make it bold */
+  margin-bottom: 20px;
+  /* Add some space below the tagline */
+  color: var(--dark-grey);
+  /* Use the dark grey color variable */
+}
+
+.tagline p {
+  font-size: 18px;
+  /* Increase the font size */
+  font-weight: normal;
+  /* Keep it normal or make it semi-bold if you prefer */
+  margin-bottom: 20px;
+  /* Add some space below the subtagline */
+  color: var(--dark-grey);
+  /* Use the dark grey color variable */
+}
+
+
+.spotify-login {
+  background-color: var(--dark-grey);
+  color: white;
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  border-radius: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  transition: transform 0.1s ease-in-out;
+  /* Add transition for smooth effect */
+
+  /* Add top margin to create space between button and text */
+}
+
+.spotify-login:hover {
+  transform: scale(1.01);
+  /* Enlarge the button slightly */
+}
+
+.hover-effect {
+  /* Your hover styles here, for example: */
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+
+.spotify-login img {
+  width: 28px;
+  /* Increase icon size */
+  height: 28px;
+  /* Increase icon size */
+  margin-right: 12px;
+  /* Increase margin */
+}
+
+.footer-container {
+  position: absolute;
+  box-shadow: none;
+  flex-shrink: 0;
+  background-color: var(--light-brown);
+  padding: 5px 0; 
+  text-align: left; 
+}
+
+.footer-links {
+  display: flex;
+  justify-content: flex-start; /* Align items to the start (left) */
+  flex-wrap: wrap;
+  margin-left: 20px; /* Add some left margin */
+}
+
+.footer-links a {
+  color: var(--dark-grey);
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold; /* Make the font thicker */
+  transition: font-size 0.1s ease-in-out; /* Add transition for hover effect */
+}
+
+.footer-links a:hover {
+  color: #4d0e2c;
+  font-size: 1.01em; /* Make the text slightly larger when hovered over */
+}
+
+/* Privacy Policy Styling */
+
+#privacy-overlay {
+  font-family: 'Noto Sans', sans-serif; 
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  z-index: 9999;
+  opacity: 0; /* Start with fully transparent */
+  transition: opacity 0.5s ease-in-out; /* Add transition for opacity */
+}
+
+#privacy-overlay.show {
+  opacity: 1; /* Fully visible when the class 'show' is added */
+}
+
+#privacy-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-height: 80%;
+  overflow-y: auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: var(--lighter-brown); /* Use the lighter brown background */
+  color: var(--dark-grey); /* Use the dark grey text color */
+  border: 1px solid var(--dark-grey); /* Add a border */
+}
+
+#privacy-content h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: var(--dark-grey); /* Use the pastel pink color for the title */
+}
+
+#privacy-content p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+#privacy-content h2, #privacy-content h3 {
+  color: var(--dark-grey);
+  font-weight: bold;
+}
+
+#privacy-content p, #privacy-content ul {
+  color: var(--dark-grey);
+  font-weight: normal;
+}
+
+#privacy-content button {
+  background-color: var(--dark-grey); /* Use the dark grey background */
+  color: white; /* White text */
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px; /* Rounded corners */
+  margin-top: 20px; /* Add some space above the button */
+}
+
+#close-privacy {
+  display: block;
+  margin: auto;
+  margin-top: 20px; /* Optional: Add some top margin for spacing */
+}
+

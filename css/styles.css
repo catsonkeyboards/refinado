@@ -1,0 +1,161 @@
+:root {
+    --lighter-brown: #F4DECB;
+    --light-brown: #e0c7b1;
+    --pastel-pink: #FFC1CC;
+    --pastel-blue: #ACE5EE;
+    --pastel-brown: #FFB07C;
+    --dark-grey: #333333;
+}
+
+#app {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--light-brown);
+}
+
+
+aside {
+    background-color: var(--lighter-brown);
+    flex: 0 0 20%;
+    height: 100%;
+    overflow-y: hidden;
+    padding: 20px;
+}
+
+
+main {
+    background-color: var(--light-brown);
+    padding: 40px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+aside ul {
+    list-style: none;
+    padding: 0;
+}
+
+aside ul li {
+    margin: 10px 0;
+    display: flex;
+
+    align-items: center;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 50%;  /* Center the footer horizontally */
+    transform: translateX(-50%);  /* Center the footer horizontally */
+    width: 90%;
+    background-color: var(--dark-grey);
+    border-radius: 50px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    margin: 0 auto 25px auto;  /* Even spacing from the bottom, left, and right */
+}
+
+#mini-player {
+    display: flex;
+    justify-content: center;
+    align-items: center;  /* Center the items vertically */
+    width: 100%;  /* Take the full width of the footer */
+}
+
+#mini-player button {
+    background-color: transparent;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: transform 0.2s ease-in-out;
+}
+
+#mini-player button:hover {
+    transform: scale(1.05);
+}
+
+.hide {
+    display: none !important;
+}
+
+.search-icon {
+    font-size: 16px !important;
+    padding: 0 10px 0 0;
+}
+
+#logo-section img {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+
+#logo-section {
+    display: flex;
+    align-items: center;
+}
+
+#playlist-section {
+    height: 100%;
+    overflow-y: auto;
+}
+
+#logo-and-menu,
+#playlist-section {
+    margin: 10px 0;
+}
+
+#logo-and-menu {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+#user-profile {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1;
+    cursor: pointer;
+  }
+  
+  #user-profile-icon {
+    font-size: 40px; /* Adjust the size of the icon */
+  }
+  #profile-dropdown {
+    display: none;
+    position: absolute;
+    top: 50px; /* Adjust based on your needs */
+    right: 0;
+    background-color: var(--dark-grey); /* Dark grey background */
+    border-radius: 10px; /* Rounded corners */
+    z-index: 2; /* To ensure it stays on top of other elements */
+    min-width: 80px; /* Set a minimum width */
+  }
+  
+  #profile-dropdown a {
+    color: white; /* White text */
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+    font-size: 12px; /* Smaller text */
+    font-weight: 500;
+    white-space: nowrap; /* Prevents the text from wrapping onto the next line */
+  }
+  
+  
+  

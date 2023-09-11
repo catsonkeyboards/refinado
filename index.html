@@ -6,7 +6,7 @@
   <title>Dupli-Spot</title>
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/material-icons.css">
+  <link rel="stylesheet" href="css/material-symbols-outlined.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -22,13 +22,17 @@
   <div id="app">
     <aside>
       <div id="logo-and-menu">
-        <div id="logo-section">
-          <img src="assets/favicon.ico" alt="Refinado Logo">
-          <h3>Home</h3>
-        </div>
         <ul>
-          <li>
-            <span class="material-symbols-outlined search-icon">search</span>
+          <li id="home-item">
+            <span class="material-symbols-outlined">home</span>
+            Home
+          </li>
+          <li id="duplicates-item">
+            <span class="material-symbols-outlined">difference</span>
+            Duplicates
+          </li>
+          <li id="search-item">
+            <span class="material-symbols-outlined">search</span>
             Search
           </li>
         </ul>
@@ -37,25 +41,24 @@
         <!-- Playlist content will go here -->
       </div>
     </aside>
+    <div id="resizable-handle"></div>
     <main>
-      <main>
-        <div id="user-profile">
-          <span class="material-symbols-outlined" id="user-profile-icon" draggable="false">account_circle</span>
-          <div id="profile-dropdown" class="dropdown-content">
-            <a href="#" id="logout" onclick="logout()">Log Out</a>
-          </div>
+      <div id="user-profile">
+        <span class="material-symbols-outlined" id="user-profile-icon" draggable="false">account_circle</span>
+        <button id="open-spotify-btn">Open Spotify</button>
+        <div id="profile-dropdown" class="dropdown-content">
+          <a href="#" id="logout" onclick="logout()">Log Out</a>
         </div>
-        
-        </div>
-        <div id="content">
-          <!-- Dynamic content will be loaded here -->
-        </div>
-      </main>      
-      <div id="content">
-        <!-- Dynamic content will be loaded here -->
       </div>
-    </main>
-    <footer>
+
+  </div>
+  <div id="content">
+    <!-- Dynamic content will be loaded here -->
+  </div>
+  </main>
+
+  <!-- SET WHEN READY
+      <footer>
       <div id="mini-player">
         <button id="prev-button">
           <span class="material-symbols-outlined">skip_previous</span>
@@ -69,11 +72,12 @@
         </button>
       </div>
     </footer>
+  -->
 
   </div>
-  <script src="auth/auth.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/miniplayer.js" defer></script>
+ <script type="module" src="js/main.js"></script>
+<script src="js/overlay.js"></script>
+<script src="js/resize.js"></script>
 </body>
 
 </html>

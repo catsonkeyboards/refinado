@@ -31,10 +31,16 @@ aside {
     background-color: var(--lighter-brown);
     flex: 0 0 20%;
     height: 100%;
-    overflow-y: hidden;
+    overflow-y: auto;
     padding: 20px;
 }
 
+#resizable-handle {
+    cursor: ew-resize;
+    background-color: #e0c7b1;
+    width: 8px;
+    height: 100%;
+}
 
 main {
     background-color: var(--light-brown);
@@ -58,21 +64,26 @@ aside ul li {
 footer {
     position: fixed;
     bottom: 0;
-    left: 50%;  /* Center the footer horizontally */
-    transform: translateX(-50%);  /* Center the footer horizontally */
+    left: 50%;
+    /* Center the footer horizontally */
+    transform: translateX(-50%);
+    /* Center the footer horizontally */
     width: 90%;
     background-color: var(--dark-grey);
     border-radius: 50px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1;
-    margin: 0 auto 25px auto;  /* Even spacing from the bottom, left, and right */
+    margin: 0 auto 25px auto;
+    /* Even spacing from the bottom, left, and right */
 }
 
 #mini-player {
     display: flex;
     justify-content: center;
-    align-items: center;  /* Center the items vertically */
-    width: 100%;  /* Take the full width of the footer */
+    align-items: center;
+    /* Center the items vertically */
+    width: 100%;
+    /* Take the full width of the footer */
 }
 
 #mini-player button {
@@ -114,7 +125,6 @@ footer {
     overflow-y: auto;
 }
 
-#logo-and-menu,
 #playlist-section {
     margin: 10px 0;
 }
@@ -125,37 +135,108 @@ footer {
     z-index: 1;
 }
 
+#logo-and-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#logo-and-menu li {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    border-radius: 20px;
+}
+
+#logo-and-menu li:hover {
+    background-color: var(--light-brown);
+    border-radius: 20px;
+}
+
+#logo-and-menu .material-icons {
+    margin-right: 10px;
+}
+
+
 #user-profile {
     position: absolute;
     top: 10px;
     right: 10px;
     z-index: 1;
+    display: flex;
+}
+
+#open-spotify-btn {
+    background-color: var(--lighter-brown);
+    color: #333333;
+    font-weight: 600;
+    border: none;
+    border-radius: 20px;
+    /* Updated from 10% to 18px */
+    width: 120px;
+    height: 40px;
+    margin-right: 10px;
+    vertical-align: middle;
     cursor: pointer;
-  }
-  
-  #user-profile-icon {
-    font-size: 40px; /* Adjust the size of the icon */
-  }
-  #profile-dropdown {
+    order: 1;
+}
+
+#user-profile-icon,
+#user-profile-pic {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--lighter-brown);
+    /* New line */
+    vertical-align: middle;
+    cursor: pointer;
+    order: 2;
+}
+
+#user-profile-icon {
+    font-size: 36px !important;
+}
+
+#profile-dropdown {
     display: none;
     position: absolute;
-    top: 50px; /* Adjust based on your needs */
+    top: 50px;
+    /* Adjust based on your needs */
     right: 0;
-    background-color: var(--dark-grey); /* Dark grey background */
-    border-radius: 10px; /* Rounded corners */
-    z-index: 2; /* To ensure it stays on top of other elements */
-    min-width: 80px; /* Set a minimum width */
-  }
-  
-  #profile-dropdown a {
-    color: white; /* White text */
+    background-color: var(--dark-grey);
+    /* Dark grey background */
+    border-radius: 15px;
+    /* Rounded corners */
+    z-index: 2;
+    /* To ensure it stays on top of other elements */
+    min-width: 80px;
+    /* Set a minimum width */
+}
+
+#profile-dropdown::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    right: 10px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid var(--dark-grey);
+}
+
+#profile-dropdown a {
+    color: white;
+    /* White text */
     padding: 10px 20px;
     text-decoration: none;
     display: block;
-    font-size: 12px; /* Smaller text */
+    font-size: 12px;
+    /* Smaller text */
     font-weight: 500;
-    white-space: nowrap; /* Prevents the text from wrapping onto the next line */
-  }
-  
-  
-  
+    white-space: nowrap;
+    /* Prevents the text from wrapping onto the next line */
+}

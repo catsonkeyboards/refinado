@@ -28,16 +28,26 @@
     </div>
     <button class="login-button" aria-label="Login to Dupli-Spot">Login</button>
   </header>
-  <main id="main-content">
-    <section class="tagline">
-      <h1>Curate Your Sound, Clean Your Playlists.</h1>
-      <p>Effortlessly manage duplicate tracks across your Spotify playlists. Perfect for casual listeners, playlist
-        pros, and music industry researchers.</p>
-      <button class="spotify-login" aria-label="Login with Spotify">
-        <img src="assets/spotify-icon.svg" alt="Spotify Icon" loading="lazy"> Login with Spotify
-      </button>
-    </section>
-  </main>
+  <div class="background-container">
+    <div id="background" class="background-image">
+      <!-- Floating Rectangles -->
+      <img class="shape-1" src="assets/brutalist/brut11.PNG" alt="Brutalist 1">
+      <img class="shape-2" src="assets/brutalist/brut8.PNG" alt="Brutalist 2">
+      <!-- Add more images as needed -->
+    </div>
+    <main id="main-content">
+      <div class="content-wrapper">
+        <section class="tagline">
+          <h1>Curate Your Sound, Clean Your Playlists.</h1>
+          <p>Effortlessly manage duplicate tracks across your Spotify playlists. Perfect for casual listeners, playlist
+            pros, and music industry researchers.</p>
+          <button class="spotify-login" aria-label="Login with Spotify">
+            <img src="assets/spotify-icon.svg" alt="Spotify Icon" loading="lazy"> Login with Spotify
+          </button>
+        </section>
+      </div>
+    </main>
+  </div>
   <footer class="footer-container">
     <div class="footer-links">
       <a href="#" aria-label="Privacy Policy">Privacy</a>
@@ -114,8 +124,8 @@
     </div>
   </div>
   <script type="module" src="js/auth.js"></script>
-<script type="module" src="js/main.js"></script>
-<script src="js/overlay.js"></script>
+  <script type="module" src="js/main.js"></script>
+  <script src="js/overlay.js"></script>
 </body>
 
 </html>

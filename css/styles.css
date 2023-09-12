@@ -1,3 +1,5 @@
+/* styles.css */
+
 :root {
     --lighter-brown: #F4DECB;
     --light-brown: #e0c7b1;
@@ -43,11 +45,12 @@ aside {
 }
 
 main {
-    background-color: var(--light-brown);
+    /* background-color: var(--light-brown); */
     padding: 40px;
     flex: 1;
     overflow-y: auto;
 }
+
 
 aside ul {
     list-style: none;

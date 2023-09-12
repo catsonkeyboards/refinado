@@ -1,3 +1,5 @@
+/* home.css */
+
 body {
   display: flex;
   flex-direction: column;
@@ -33,17 +35,19 @@ body {
   background-image: linear-gradient(to right, var(--dark-grey), #4d0e2c, var(--dark-grey));
   -webkit-background-clip: text;
   color: transparent;
-  display: inline; /* Required for background-clip to work */
+  display: inline;
+  /* Required for background-clip to work */
 }
 
 .home-page main {
+  background-color: transparent;
   flex: 1 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 0;  /* Remove the fixed bottom margin */
-  margin-top: -100px;
+  padding-left: 100px;
+  padding-right: 100px;
 }
 
 .logo-container {
@@ -81,6 +85,7 @@ body {
   /* Center the items horizontally */
   justify-content: center;
   /* Center the items vertically */
+  padding-top: 100px;
 }
 
 .tagline h1 {
@@ -148,35 +153,40 @@ body {
   position: absolute;
   box-shadow: none;
   flex-shrink: 0;
-  background-color: var(--light-brown);
-  padding: 5px 0; 
-  text-align: left; 
+  background-color: transparent;
+  padding: 5px 0;
+  text-align: left;
 }
 
 .footer-links {
   display: flex;
-  justify-content: flex-start; /* Align items to the start (left) */
+  justify-content: flex-start;
+  /* Align items to the start (left) */
   flex-wrap: wrap;
-  margin-left: 20px; /* Add some left margin */
+  margin-left: 20px;
+  /* Add some left margin */
 }
 
 .footer-links a {
   color: var(--dark-grey);
   margin: 0 15px;
   text-decoration: none;
-  font-weight: bold; /* Make the font thicker */
-  transition: font-size 0.1s ease-in-out; /* Add transition for hover effect */
+  font-weight: bold;
+  /* Make the font thicker */
+  transition: font-size 0.1s ease-in-out;
+  /* Add transition for hover effect */
 }
 
 .footer-links a:hover {
   color: #4d0e2c;
-  font-size: 1.01em; /* Make the text slightly larger when hovered over */
+  font-size: 1.01em;
+  /* Make the text slightly larger when hovered over */
 }
 
 /* Privacy Policy Styling */
 
 #privacy-overlay {
-  font-family: 'Noto Sans', sans-serif; 
+  font-family: 'Noto Sans', sans-serif;
   display: none;
   position: fixed;
   top: 0;
@@ -186,12 +196,15 @@ body {
   background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(5px);
   z-index: 9999;
-  opacity: 0; /* Start with fully transparent */
-  transition: opacity 0.5s ease-in-out; /* Add transition for opacity */
+  opacity: 0;
+  /* Start with fully transparent */
+  transition: opacity 0.5s ease-in-out;
+  /* Add transition for opacity */
 }
 
 #privacy-overlay.show {
-  opacity: 1; /* Fully visible when the class 'show' is added */
+  opacity: 1;
+  /* Fully visible when the class 'show' is added */
 }
 
 #privacy-content {
@@ -206,15 +219,19 @@ body {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: var(--lighter-brown); /* Use the lighter brown background */
-  color: var(--dark-grey); /* Use the dark grey text color */
-  border: 1px solid var(--dark-grey); /* Add a border */
+  background-color: var(--lighter-brown);
+  /* Use the lighter brown background */
+  color: var(--dark-grey);
+  /* Use the dark grey text color */
+  border: 1px solid var(--dark-grey);
+  /* Add a border */
 }
 
 #privacy-content h2 {
   font-size: 24px;
   margin-bottom: 20px;
-  color: var(--dark-grey); /* Use the pastel pink color for the title */
+  color: var(--dark-grey);
+  /* Use the pastel pink color for the title */
 }
 
 #privacy-content p {
@@ -222,29 +239,96 @@ body {
   line-height: 1.5;
 }
 
-#privacy-content h2, #privacy-content h3 {
+#privacy-content h2,
+#privacy-content h3 {
   color: var(--dark-grey);
   font-weight: bold;
 }
 
-#privacy-content p, #privacy-content ul {
+#privacy-content p,
+#privacy-content ul {
   color: var(--dark-grey);
   font-weight: normal;
 }
 
 #privacy-content button {
-  background-color: var(--dark-grey); /* Use the dark grey background */
-  color: white; /* White text */
+  background-color: var(--dark-grey);
+  /* Use the dark grey background */
+  color: white;
+  /* White text */
   padding: 10px 20px;
   border: none;
   cursor: pointer;
-  border-radius: 20px; /* Rounded corners */
-  margin-top: 20px; /* Add some space above the button */
+  border-radius: 20px;
+  /* Rounded corners */
+  margin-top: 20px;
+  /* Add some space above the button */
 }
 
 #close-privacy {
   display: block;
   margin: auto;
-  margin-top: 20px; /* Optional: Add some top margin for spacing */
+  margin-top: 20px;
+  /* Optional: Add some top margin for spacing */
 }
 
+/* Home Background */
+
+.background-container {
+  position: relative;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.shape-1, 
+.shape-2 {
+  animation: float 4s ease-in-out infinite alternate;
+  transform-origin: center;
+  fill-opacity: 0.7;
+  /* Adjust opacity if needed */
+  width: 250px; /* Set the width and height to match your image size */
+  height: 250px;
+}
+
+.shape-1 {
+  position: absolute;
+  top: 40px; /* Adjust the top position as needed */
+  right: 20px; /* Adjust the left position as needed */
+}
+
+.shape-2 {
+  position: absolute;
+  top: 380px; /* Adjust the top position as needed */
+  left: 10px; /* Adjust the left position as needed */
+  animation: float 6s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-20px);
+  }
+}

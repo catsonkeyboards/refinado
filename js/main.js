@@ -92,15 +92,24 @@ document.addEventListener("DOMContentLoaded", async function () {
 function populatePlaylistDetails(playlist, tracks) {
   const detailsDiv = document.getElementById("playlist-details");
   detailsDiv.innerHTML = `
-    <img src="${playlist.images[0]?.url || "default_image_url"}" alt="${
-    playlist.name
-  } artwork">
-    <div>
-      <h2>${playlist.name}</h2>
+    <a href="${playlist.external_urls.spotify}" target="_blank" class="playlist-link" title="Open in Spotify">
+      <img src="${playlist.images[0]?.url || "default_image_url"}" alt="${playlist.name} artwork" class="playlist-artwork">
+    </a>
+    <div class="playlist-details">
+      <div class="my-toggle-switch">
+        <input type="checkbox" id="switch" />
+        <label for="switch"></label>
+        <span class="toggle-text">Show Duplicates</span>
+      </div>
+      <h2 title="Open in Spotify">${playlist.name}</h2>
       <p>${tracks.length} tracks</p>
-      <p>Total length: ${calculatePlaylistLength(tracks)} </p>
+      <p>Total length: ${calculatePlaylistLength(tracks)}</p>
     </div>
   `;
+  
+  // Scroll to the top of the content element
+  const contentElement = document.getElementById("content");
+  contentElement.scrollTop = 0;
 }
 
 // Function to calculate the total length of the playlist
@@ -132,7 +141,7 @@ function populateTracks(tracks) {
     <img src="${artworkURL}" alt="${track.track.name}" class="track-artwork">
     <div>
       <label>${track.track.name}</label>
-      <small>(${track.track.artists[0].name})</small>
+      <small>${track.track.artists[0].name}</small>
     </div>
   `;
     contentDiv.appendChild(trackDiv);
@@ -142,13 +151,33 @@ function populateTracks(tracks) {
 // Event listener for playlist clicks
 document.addEventListener("click", async function (event) {
   if (event.target.closest(".playlist-item")) {
-    const playlistId =
-      event.target.closest(".playlist-item").dataset.playlistId;
+    const playlistId = event.target.closest(".playlist-item").dataset.playlistId;
     const accessToken = localStorage.getItem("spotifyAccessToken");
-    const tracks = await fetchPlaylistTracks(accessToken, playlistId);
+
+    // Clear existing tracks
+    const contentDiv = document.getElementById("content");
+    contentDiv.innerHTML = "";
+
+    // Show loading indicator for tracks
+    const trackLoadingIndicator = document.getElementById('track-loading');
+    if (trackLoadingIndicator) {  // Check if the element exists
+      trackLoadingIndicator.style.display = 'block';
+    } else {
+      console.error("Track loading indicator element not found.");
+    }
+
+    // Fetch tracks and populate details
+    const [tracks] = await Promise.all([
+      fetchPlaylistTracks(accessToken, playlistId)
+    ]);
+
+    // Hide loading indicator for tracks
+    if (trackLoadingIndicator) {  // Check if the element exists
+      trackLoadingIndicator.style.display = 'none';
+    }
 
     // Find the clicked playlist object using the playlistId
-    const playlist = allPlaylists.find((pl) => pl.id === playlistId);
+    const playlist = allPlaylists.find(pl => pl.id === playlistId);
 
     if (playlist && tracks) {
       populatePlaylistDetails(playlist, tracks);

@@ -1,3 +1,5 @@
+// miniplayer.js
+
 document.addEventListener("DOMContentLoaded", function () {
   const playPauseButton = document.getElementById("play-pause-button");
   const playIcon = document.getElementById("play-icon");

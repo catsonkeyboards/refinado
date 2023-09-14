@@ -27,18 +27,11 @@
             <span class="material-symbols-outlined">home</span>
             Home
           </li>
-          <li id="duplicates-item">
-            <span class="material-symbols-outlined">difference</span>
-            Duplicates
-          </li>
-          <li id="search-item">
-            <span class="material-symbols-outlined">search</span>
-            Search
-          </li>
         </ul>
       </div>
       <div id="playlist-section" class="scrollable">
-        <!-- Playlist content will go here -->
+        <div id="loading" class="loading"></div>
+        <!-- Playlist content generates here -->
       </div>
     </aside>
     <div id="resizable-handle"></div>
@@ -50,11 +43,16 @@
           <a href="#" id="logout" onclick="logout()">Log Out</a>
         </div>
       </div>
+      <div id="playlist-details">
+        <!-- Playlist details will be populated here -->
+      </div>
+      <hr style="border-color: var(--lighter-brown);">
+      <div id="content">
+        <!-- Dynamic content will be loaded here -->
+      </div>
+  </div>
 
-  </div>
-  <div id="content">
-    <!-- Dynamic content will be loaded here -->
-  </div>
+
   </main>
 
   <!-- SET WHEN READY
@@ -75,10 +73,9 @@
   -->
 
   </div>
- <script type="module" src="js/main.js"></script>
-<script src="js/overlay.js"></script>
-<script src="js/resize.js"></script>
-<script type="module" src="/js/spotifyAPI.js"></script>
+  <script type="module" src="js/main.js"></script>
+  <!-- <script src="js/resize.js"></script> -->
+  <script type="module" src="/js/spotifyAPI.js"></script>
 </body>
 
 </html>

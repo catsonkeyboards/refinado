@@ -12,8 +12,32 @@
 body {
   font-family: 'Roboto', sans-serif;
   background-color: var(--light-brown);
+  background-image: url('/assets/brutalist/brut18.PNG');
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-position: center;
+  animation: hoverBackground 10s infinite linear;
   overflow-y: auto;
-  */
+}
+
+@media (max-width: 768px) {
+  body {
+    animation: hoverBackground 5s infinite linear;
+  }
+}
+
+/* Animation for body background image to add some motion */
+@keyframes hoverBackground {
+  0% {
+    background-position: center 5rem;  /* Start 2rem down */
+  }
+  50% {
+    background-position: center calc(5rem + 5%);  /* Move down by an additional 5% */
+  }
+  100% {
+    background-position: center 5rem;  /* Return to the starting position */
+  }
 }
 
 /* Floating Rounded Header with Logo, Title and Login Button */
@@ -69,7 +93,7 @@ body {
   display: flex;
   justify-content: center;
   text-align: center;
-  padding: 8rem;
+  padding: 10rem;
   flex-direction: column;
   align-items: center;
 }
@@ -152,14 +176,19 @@ footer {
   backdrop-filter: blur(5px);
   z-index: 9999;
   opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+  visibility: hidden;
 }
 
 #privacy-overlay.show {
+  visibility: visible;
   opacity: 1;
 }
 
 #privacy-content {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  backdrop-filter: none;
   position: absolute;
   top: 50%;
   left: 50%;

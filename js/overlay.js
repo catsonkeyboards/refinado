@@ -4,21 +4,26 @@ document.addEventListener('DOMContentLoaded', function() {
   const privacyBtn = document.querySelector('.footer-links a[href="#"]');
   const closeBtn = document.getElementById('close-privacy');
   const overlay = document.getElementById('privacy-overlay');
+  const loginButton = document.querySelector('.login-button');
+  const spotifyLoginButton = document.querySelector('.spotify-login');
 
+  //Error Handling
+
+  if (!privacyBtn || !closeBtn || !overlay || !loginButton || !spotifyLoginButton) {
+    console.error("One or more elements are missing from the DOM.");
+    return;
+  }
+  
   // Function to show the privacy policy
   function showPrivacyPolicy() {
-    console.log("Showing privacy policy...");
     overlay.classList.add('show');
     overlay.style.display = 'block';
-    console.log("Privacy policy should now be visible.");
   }
 
   // Function to hide the privacy policy
   function hidePrivacyPolicy() {
-    console.log("Hiding privacy policy...");
     overlay.classList.remove('show');
     overlay.style.display = 'none';
-    console.log("Privacy policy should now be hidden.");
   }
 
   if (privacyBtn) {
@@ -33,12 +38,8 @@ document.addEventListener('DOMContentLoaded', function() {
       hidePrivacyPolicy();
     });
   }
-});
 
-// Hover effect for Login Buttons in the Home Page
-document.addEventListener('DOMContentLoaded', function() {
-  const loginButton = document.querySelector('.login-button');
-  const spotifyLoginButton = document.querySelector('.spotify-login');
+  // Hover Effects for Login Buttons
 
   function addHoverEffect() {
     loginButton.classList.add('hover-effect');

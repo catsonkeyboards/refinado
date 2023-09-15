@@ -30,7 +30,7 @@ export async function fetchAllUserPlaylists(accessToken) {
   return allPlaylists; // This will be an array of all playlist objects
 }
 
-export async function fetchPlaylistTracks(accessToken, playlistId) {
+export async function fetchPlaylistTracks(accessToken, playlistId, signal) {
   let url = `https://api.spotify.com/v1/playlists/${playlistId}/tracks`;
   let allTracks = [];
 
@@ -38,7 +38,8 @@ export async function fetchPlaylistTracks(accessToken, playlistId) {
     const fetchTracks = () => fetch(url, {
       headers: {
         'Authorization': `Bearer ${accessToken}`
-      }
+      },
+      signal // Pass the signal here
     }).then(response => response.json());
 
     const data = await promiseThrottle.add(fetchTracks.bind(this));
@@ -48,3 +49,4 @@ export async function fetchPlaylistTracks(accessToken, playlistId) {
 
   return allTracks;
 }
+

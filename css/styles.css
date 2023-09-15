@@ -2,8 +2,8 @@
 
 /* Color Theme */
 :root {
-    --lighter-brown: #F4DECB;
-    --light-brown: #e0c7b1;
+    --lighter-brown: #e0c9b5;
+    --light-brown: #cdb6a2;
     --dark-brown: rgb(185, 164, 145);
     --pastel-pink: #FFC1CC;
     --pastel-blue: #ACE5EE;
@@ -11,7 +11,7 @@
     --dark-grey: #333333;
     --primary: #ef9995;
     --secondary: #a4cbb4;
-    --accent: #dc8850;
+    --accent: #e17d3b;
     --neutral: #2e282a;
     --base-100: #e4d8b4;
     --info: #2463eb;
@@ -294,6 +294,11 @@ aside {
     border-radius: 5px;
 }
 
+.playlist-item.selected {
+    background-color: var(--accent);
+    border-radius: 5px;
+  }
+
 .playlist-item {
     margin: 5px;
     padding: 5px;
@@ -322,6 +327,8 @@ aside {
     color: #484848;
     cursor: pointer;
 }
+
+
 
 /* Top Right buttons and Profile/Logout Menu */
 #user-profile {
@@ -427,3 +434,29 @@ aside {
 /* #mini-player button:hover {
     transform: scale(1.05);
 } */
+
+/* Loading Line */
+.loading-line {
+    margin: 0px;
+    padding: 50px;
+    background: linear-gradient(90deg, transparent, var(--dark-brown), transparent);
+    background-size: 200% 100%;
+    animation: loading-animation 1s infinite linear;
+    border-radius: 15px;
+}
+
+.track-loading-line {
+    height: 0.5px;
+    margin: 20px;
+    padding: 20px;
+}
+
+@keyframes loading-animation {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}

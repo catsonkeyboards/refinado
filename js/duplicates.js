@@ -1,8 +1,5 @@
 // duplicates.js
 
-// const duplicates = showDuplicates(currentTracks, currentSortOrder);
-// originalDuplicates = [...duplicates]; // Store the original duplicates
-
 // Function to show duplicates
 export function showDuplicates(tracks, sortOrder) {
   const trackMap = new Map();

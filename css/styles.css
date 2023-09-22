@@ -52,6 +52,53 @@ main {
     position: relative;
 }
 
+/* Style for the dropdown container in the tracks area */
+.custom-dropdown {
+    position: relative;
+    width: 8rem;
+  }
+  
+  .arrow {
+    margin-right: 0.5rem;
+  }
+  
+  .selected-option {
+    display: flex; 
+    align-items: center;
+    padding: 0.2rem 1rem;
+    border: 0px solid #ccc;
+    border-radius: 0.2rem;
+    font-size: 0.8rem;
+    background-color: var(--lighter-brown);
+    color: var(--dark-grey);
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  
+  .options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    left: 0;
+    border: 0rem;
+    border-radius: 0.2rem;
+    background-color: var(--lighter-brown);
+    z-index: 1;
+  }
+  
+  .option {
+      font-size: 0.8rem;
+      background-color: var(--lighter-brown);
+      padding: 0.2rem 1rem;
+      cursor: pointer;
+  }
+  
+  .option:hover {
+    background-color: var(--accent);
+  }
+
+
 #playlist-details img {
     width: 100px;
     height: 100px;
@@ -137,11 +184,21 @@ hr {
 }
 
 /* Toggle Switches */
-.my-toggle-switch {
+.toggle-switch-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+.my-toggle-switch {
+    position: relative;
     bottom: 0px;
     right: 10px;
     display: inline-block;
+    margin-right: 10px;
 }
 
 .my-toggle-switch input[type="checkbox"] {
@@ -279,11 +336,62 @@ aside {
     margin-right: 10px;
 }
 
+/* Style for the dropdown container in the playlist area */
+.playlist-sort-dropdown {
+    position: relative;
+    border-radius: 0.2rem;
+  }
+
+  .playlist-arrow{
+    margin-right: 0.5rem;
+  }
+
+  .playlist-selected-option {
+    display: flex; 
+    align-items: center;
+    padding: 0.2rem 1rem;
+    border: 0px solid #ccc;
+    border-radius: 0.2rem;
+    font-size: 0.8rem;
+    background-color: var(--lighter-brown);
+    color: var(--dark-grey);
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+  .playlist-options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    left: 0;
+    border: 0rem;
+    border-radius: 0.2rem;
+    background-color: var(--lighter-brown);
+    z-index: 10; 
+  } 
+
+  .playlist-option {
+    font-size: 0.8rem;
+    background-color: var(--lighter-brown);
+    padding: 0.2rem 1rem;
+    cursor: pointer;
+}
+
+.playlist-option:hover {
+    background-color: var(--accent);
+}
+
+/* CSS for rotated arrow */
+.rotated-arrow {
+    transform: rotate(180deg);
+}
+
 /* Playlists section styles */
 #playlist-section {
     position: relative;
     flex: 1;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 140px);
     background-color: var(--light-brown);
     border-radius: 5px;
     overflow-y: auto;
@@ -328,7 +436,11 @@ aside {
     cursor: pointer;
 }
 
-
+.playlist-section-header {
+    padding: 0.2rem;
+    width: 12rem;
+    margin-bottom: 1rem; 
+  }
 
 /* Top Right buttons and Profile/Logout Menu */
 #user-profile {
